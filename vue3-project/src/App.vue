@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "@/components/HelloWorld.vue";
 import Computed from "./components/Computed.vue";
+import WindicssType from "./components/WindicssType.vue";
 </script>
 
 <template>
@@ -19,6 +20,7 @@ import Computed from "./components/Computed.vue";
   </header>
 
   <Computed />
+  <WindicssType />
 
   <RouterView />
 </template>
