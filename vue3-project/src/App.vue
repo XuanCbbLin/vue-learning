@@ -1,13 +1,15 @@
 <template>
   <!-- <MenuVue :title="menuData.name" :child="menuData.childNodes" /> -->
   <!-- <DynamicComponent /> -->
-  <DynamicComponentHookVue />
+  <!-- <DynamicComponentHookVue /> -->
+  <AsyncComponentVue />
 </template>
 
 <script setup>
 import MenuVue from "./components/Menu.vue";
 import DynamicComponent from "./components/DynamicComponent.vue";
 import DynamicComponentHookVue from "./components/DynamicComponentHook.vue";
+import AsyncComponentVue from "./components/AsyncComponent.vue";
 
 const menuData = {
   name: "好書推薦",
