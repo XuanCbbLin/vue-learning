@@ -1,124 +1,63 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
-import Computed from "./components/Computed.vue";
-import WindicssType from "./components/WindicssType.vue";
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <Computed />
-  <WindicssType />
-
-  <RouterView />
+  <MenuVue :title="menuData.name" :child="menuData.childNodes" />
 </template>
 
-<style>
-@import "@/assets/base.css";
+<script setup>
+import MenuVue from "./components/Menu.vue";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+const menuData = {
+  name: "好書推薦",
+  childNodes: [
+    {
+      name: "Git",
+      url: null,
+      childNodes: [
+        {
+          name: "為你自己學 Git",
+          url: "https://www.tenlong.com.tw/products/9789864342662",
+        },
+      ],
+    },
+    {
+      name: "前端開發",
+      url: null,
+      childNodes: [
+        {
+          name: "金魚都能懂的 CSS 選取器",
+          url: "https://www.tenlong.com.tw/products/9789864344994",
+        },
+        {
+          name: "0 陷阱！0 誤解！8 天重新認識 JavaScript！",
+          url: "https://www.tenlong.com.tw/products/9789864344130",
+        },
+        {
+          name: "讓 TypeScript 成為你全端開發的 ACE！",
+          url: "https://www.tenlong.com.tw/products/9789864344895",
+        },
+      ],
+    },
+    {
+      name: "IoT",
+      url: null,
+      childNodes: [
+        {
+          name: "IoT沒那麼難！新手用 JavaScript 入門做自己的玩具！",
+          url: "https://www.tenlong.com.tw/products/9789864345328",
+        },
+      ],
+    },
+    {
+      name: "Chatbot",
+      url: null,
+      childNodes: [
+        {
+          name: "人人可作卡米狗：從零打造自己的 LINE 聊天機器人",
+          url: "https://www.tenlong.com.tw/products/9789864342938",
+        },
+      ],
+    },
+  ],
+};
+</script>
 
-  font-weight: normal;
-}
-
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+<style></style>
