@@ -1,23 +1,30 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from "./components/HelloWorld.vue";
-import ParentVue from "./Parent.vue";
-</script>
-
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" /> -->
-  <ParentVue />
+  <!-- <ChildVue v-slot="slotProps"> {{ slotProps.text }} {{ slotProps.count }} </ChildVue> -->
+
+  <button @click="open = true">Open Modal</button>
+
+  <Teleport to="body">
+    <div v-if="open" class="modal">
+      <p>Hello from the modal!</p>
+      <button @click="open = false">Close</button>
+    </div>
+  </Teleport>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<script setup>
+import ChildVue from "./components/Child.vue";
+import { ref } from "vue";
+
+const open = ref(false);
+</script>
+
+<style scoped>
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 20%;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
 }
 </style>
